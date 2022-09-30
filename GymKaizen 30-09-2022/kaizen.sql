@@ -1,50 +1,52 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2022 a las 00:55:01
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: kaizen
+-- ------------------------------------------------------
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Base de datos: `kaizen`
---
-CREATE DATABASE IF NOT EXISTS `kaizen` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `kaizen`;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `area`
+-- Table structure for table `area`
 --
 
 DROP TABLE IF EXISTS `area`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `area` (
   `idArea` int(11) NOT NULL,
-  `nombre` varchar(45) NOT NULL
+  `nombre` varchar(45) NOT NULL,
+  PRIMARY KEY (`idArea`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Dumping data for table `area`
+--
+
+LOCK TABLES `area` WRITE;
+/*!40000 ALTER TABLE `area` DISABLE KEYS */;
+/*!40000 ALTER TABLE `area` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clientes`
 --
 
 DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clientes` (
-  `idCliente` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `saldo` decimal(10,0) NOT NULL,
   `cedula` varchar(10) NOT NULL,
   `nombre` varchar(45) NOT NULL,
@@ -52,26 +54,30 @@ CREATE TABLE `clientes` (
   `telefono` varchar(15) NOT NULL,
   `direccion` varchar(60) NOT NULL,
   `correo` varchar(45) NOT NULL,
-  `discapacidad` tinyint(4) NOT NULL,
-  `entrenador` tinyint(11) NOT NULL,
-  `membresia` tinyint(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `discapacidad` enum('SI','NO') NOT NULL,
+  `entrenador` enum('NO','SI') NOT NULL,
+  `membresia` enum('NORMAL','GOLD','PLATINUM') NOT NULL,
+  PRIMARY KEY (`idCliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `clientes`
+-- Dumping data for table `clientes`
 --
 
-INSERT INTO `clientes` (`idCliente`, `saldo`, `cedula`, `nombre`, `apellido`, `telefono`, `direccion`, `correo`, `discapacidad`, `entrenador`, `membresia`) VALUES
-(1, '10', '12620374', 'carlos', 'perez', '0424555', 'micasa', 'cperez@gmail.com', 0, 0, 1),
-(3, '10', '12620375', 's', 's', '1232', 'dasd', 'mama', 0, 0, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (50,0,'cocodrilo','','','','','sdsd|@as','','','');
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `entrenador`
+-- Table structure for table `entrenador`
 --
 
 DROP TABLE IF EXISTS `entrenador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `entrenador` (
   `idEntrenador` int(11) NOT NULL,
   `cedula` varchar(10) NOT NULL,
@@ -79,81 +85,76 @@ CREATE TABLE `entrenador` (
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `telefono` varchar(15) NOT NULL,
-  `correo` varchar(45) NOT NULL
+  `correo` varchar(45) NOT NULL,
+  PRIMARY KEY (`idEntrenador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estructura de tabla para la tabla `horario`
+-- Dumping data for table `entrenador`
+--
+
+LOCK TABLES `entrenador` WRITE;
+/*!40000 ALTER TABLE `entrenador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `entrenador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `horario`
 --
 
 DROP TABLE IF EXISTS `horario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `horario` (
   `idHorario` int(11) NOT NULL,
   `horaInicio` time NOT NULL,
-  `horaFin` time NOT NULL
+  `horaFin` time NOT NULL,
+  PRIMARY KEY (`idHorario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estructura de tabla para la tabla `membresia`
+-- Dumping data for table `horario`
+--
+
+LOCK TABLES `horario` WRITE;
+/*!40000 ALTER TABLE `horario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `horario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `membresia`
 --
 
 DROP TABLE IF EXISTS `membresia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `membresia` (
   `idMembresia` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
-  `modAsistencia` varchar(10) NOT NULL
+  `modAsistencia` varchar(10) NOT NULL,
+  PRIMARY KEY (`idMembresia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `membresia`
 --
 
---
--- Indices de la tabla `area`
---
-ALTER TABLE `area`
-  ADD PRIMARY KEY (`idArea`);
+LOCK TABLES `membresia` WRITE;
+/*!40000 ALTER TABLE `membresia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `membresia` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indices de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`idCliente`);
-
---
--- Indices de la tabla `entrenador`
---
-ALTER TABLE `entrenador`
-  ADD PRIMARY KEY (`idEntrenador`);
-
---
--- Indices de la tabla `horario`
---
-ALTER TABLE `horario`
-  ADD PRIMARY KEY (`idHorario`);
-
---
--- Indices de la tabla `membresia`
---
-ALTER TABLE `membresia`
-  ADD PRIMARY KEY (`idMembresia`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-09-30  2:38:41
