@@ -3,8 +3,14 @@ $orange: rgb(255, 123, 0);
 $light-orange: rgb(255, 187, 0);
 $grey: rgb(102, 102, 102);
 $black-grey: rgb(68, 68, 68);
+$black-grey-tr: rgba(68, 68, 68, 0.800);
+$black-tr: rgba(0, 0, 0, 0.685);
 
 $sd-black: 0 0 .5rem $black-grey;
+$sd-hard-black: 0 0 .8rem black;
+$sd-orange: 0 .1rem .5rem $orange;
+
+$border-normal: .5rem;
 
 html *{
     font-family: 'Heebo' !important;
