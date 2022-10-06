@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2022 a las 00:55:01
+-- Tiempo de generación: 07-10-2022 a las 00:23:28
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `kaizen` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `kaizen`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE `admins` (
+  `idAdmin` int(11) NOT NULL,
+  `usuario` varchar(45) NOT NULL,
+  `pass` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `admins`
+--
+
+INSERT INTO `admins` (`idAdmin`, `usuario`, `pass`) VALUES
+(1, 'luis', '456');
 
 -- --------------------------------------------------------
 
@@ -52,9 +72,9 @@ CREATE TABLE `clientes` (
   `telefono` varchar(15) NOT NULL,
   `direccion` varchar(60) NOT NULL,
   `correo` varchar(45) NOT NULL,
-  `discapacidad` tinyint(4) NOT NULL,
-  `entrenador` tinyint(11) NOT NULL,
-  `membresia` tinyint(11) NOT NULL
+  `discapacidad` enum('SI','NO') NOT NULL,
+  `entrenador` enum('SI','NO') NOT NULL,
+  `membresia` enum('NORMAL','GOLD','PLATINUM') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -62,8 +82,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idCliente`, `saldo`, `cedula`, `nombre`, `apellido`, `telefono`, `direccion`, `correo`, `discapacidad`, `entrenador`, `membresia`) VALUES
-(1, '10', '12620374', 'carlos', 'perez', '0424555', 'micasa', 'cperez@gmail.com', 0, 0, 1),
-(3, '10', '12620375', 's', 's', '1232', 'dasd', 'mama', 0, 0, 1);
+(58, '0', '123', 'carlos', 'sdfsd', '0102-4242452', 'asdas', 'carlos@gmail.com', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -114,6 +133,12 @@ CREATE TABLE `membresia` (
 --
 
 --
+-- Indices de la tabla `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`idAdmin`);
+
+--
 -- Indices de la tabla `area`
 --
 ALTER TABLE `area`
@@ -148,10 +173,16 @@ ALTER TABLE `membresia`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
