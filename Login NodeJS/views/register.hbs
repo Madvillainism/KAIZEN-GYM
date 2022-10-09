@@ -1,0 +1,64 @@
+<div class="row my-5 mx-auto w-75 align-items-center">
+    <h2 class="h1 fw-bold text-center"><i class="bi bi-person-plus-fill me-2"></i></i>REGISTRATE</h2>
+    <div class="col-12 col-lg-6 p-3">
+        <img src="/src/img/vertical2.jpg" class="img-fluid h-50">
+    </div>
+    <div class="col-12 col-lg-6 p-3 text-center text-lg-start">
+        <form action="" method="POST">
+            <label 
+                for="name" 
+                class="form-label mt-2 fs-5">
+                <i class="bi bi-person-fill me-1"></i>Usuario
+            </label>
+            <input 
+                type="text" 
+                name = "name"
+                id="name" 
+                class="form-control" 
+                placeholder="Ingrese su cnombre de usuario">
+            <label 
+                for="email" 
+                class="form-label mt-2 fs-5"><i 
+                class="bi bi-envelope me-2"></i>Correo</label>
+            <input 
+                type="text"
+                name="email" 
+                id="email" 
+                class="form-control" 
+                placeholder="Ingrese su correo electronico">
+            <label 
+                for="password" 
+                class="form-label mt-2 fs-5">
+                <i class="bi bi-braces-asterisk me-2"></i>Contraseña
+            </label>
+            <input 
+                type="password" 
+                name="password"
+                id="password" 
+                class="form-control" 
+                placeholder="Ingrese su contraseña">
+            <label 
+                for="repassword" 
+                class="form-label mt-2 fs-5"><i 
+                class="bi bi-braces-asterisk me-2"></i>Repetir
+                Contraseña
+            </label>
+            <input 
+                type="password" 
+                name="repassword"
+                id="repassword" 
+                class="form-control" 
+                placeholder="Repita su contraseña">
+            <input 
+                type="submit" 
+                name="submit" 
+                class="btn btn-primary my-3 w-100" 
+                value="Ingresar">
+        </form>
+        <div></div>
+        <div class="row text-center text-lg-start">
+            <p class="m-0">¿Ya tienes una cuenta?</p>
+            <p class="m-0"><a href="/auth/login" class="link">¡Inicia Sesión!</a></p>
+        </div>
+    </div>
+</div>
