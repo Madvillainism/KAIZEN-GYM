@@ -3,51 +3,23 @@ html * {
 }
 
 html {
-  min-height: 100%;
+  min-height: calc(100% - 3rem);
   position: relative;
-}
-
-body * {
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  margin-bottom: 8rem !important;
-}
-
-.btn-primary {
-  background-color: rgb(255, 136, 0) !important;
-  border: none !important;
-  color: white !important;
-}
-.btn-primary:hover {
-  background-color: rgb(255, 187, 0) !important;
-}
-.btn-outline-primary {
-  color: white !important;
-  border: 0.13rem solid rgb(255, 123, 0) !important;
-}
-.btn-outline-primary:hover {
-  border: 0.13rem solid rgb(255, 187, 0) !important;
-  background-color: rgb(255, 187, 0) !important;
-}
-
-.navbar {
-  border: none !important;
-  background-color: black !important;
-  box-shadow: 0 0 0.5rem rgb(68, 68, 68);
-}
-.navbar-nav {
-  margin-left: auto;
-}
-.navbar-brand {
-  font-weight: bold;
-  font-size: 2.2rem !important;
 }
 
 img {
   border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgb(68, 68, 68);
+}
+
+.top {
+  width: 100%;
+  height: 1rem;
+  background-color: black;
   box-shadow: 0 0 0.5rem rgb(68, 68, 68);
 }
 
@@ -66,6 +38,10 @@ img {
 
 .logo {
   color: rgb(255, 187, 0) !important;
+}
+
+.w-85 {
+  width: 85vw;
 }
 
 .separator {
@@ -142,10 +118,108 @@ img {
   height: 60vh !important;
 }
 
+html * {
+  font-family: "Heebo" !important;
+}
+
+.btn {
+  border: none !important;
+  color: white !important;
+}
+.btn-primary {
+  background-color: rgb(255, 123, 0) !important;
+}
+.btn-primary:hover {
+  background-color: rgb(255, 187, 0) !important;
+}
+.btn-secondary {
+  background-color: rgb(255, 187, 0) !important;
+}
+
+.navbar {
+  border: none !important;
+  background-color: black !important;
+  box-shadow: 0 0 0.5rem rgb(68, 68, 68);
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 2.2rem !important;
+}
+
+.sidebar {
+  position: fixed;
+  margin: 0;
+  padding: 0.5rem;
+  width: 13rem;
+  height: 100%;
+  background-color: rgb(248, 240, 240);
+  box-shadow: 0 0 0.5rem rgb(68, 68, 68);
+}
+.sidebar .button, .sidebar .button-main {
+  font-size: 1.05rem;
+  padding: 0.5rem;
+  display: block;
+  cursor: pointer;
+  margin: 0.3rem 0;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.sidebar .button-main {
+  background-color: rgb(255, 72, 0);
+}
+.sidebar .button:hover, .sidebar .button-main:hover {
+  background-color: rgb(255, 123, 0);
+}
+
+.app {
+  width: calc(100% - 13rem) !important;
+  margin-left: 13rem !important;
+}
+
+.table {
+  height: 19rem;
+  padding: 1rem 0rem;
+  padding-left: 1.5rem;
+  background-color: rgb(248, 240, 240);
+  box-shadow: 0 0 0.5rem rgb(153, 153, 153);
+  border-radius: 0.5rem;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.table .row {
+  padding: 0.2rem;
+  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+.table .row.white {
+  background-color: white;
+}
+.table .row.clicked {
+  background-color: rgb(255, 187, 0);
+}
+.table .row:hover {
+  background-color: rgb(255, 187, 0);
+}
+.table .header {
+  width: 100% !important;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  transition: background-color 0.2s;
+  font-weight: bold;
+}
+
 .footer {
-  height: 4rem;
+  height: 3rem;
   position: absolute !important;
-  bottom: 0;
+  bottom: -3rem;
   background-color: black;
   box-shadow: 0 0 0.5rem rgb(68, 68, 68);
   flex-direction: column;

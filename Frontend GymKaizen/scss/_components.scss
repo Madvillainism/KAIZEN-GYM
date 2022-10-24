@@ -1,0 +1,138 @@
+@use 'variables' as m;
+
+//------------------------BUTTONS------------------------//
+
+.btn {
+  border: none !important;
+  color: white !important;
+
+  &-primary {
+    background-color: m.$orange !important;
+  }
+
+  &-primary:hover {
+    background-color: m.$light-orange !important;
+  }
+
+  &-secondary{
+    background-color: m.$light-orange !important;
+  }
+
+}
+
+//----------------------NAVBAR----------------------//
+
+.navbar {
+  border: none !important;
+  background-color: black !important;
+  box-shadow: m.$sd-black;
+
+  &-nav {
+    margin-left: auto;
+  }
+
+  &-brand {
+    font-weight: bold;
+    font-size: 2.2rem !important;
+  }
+
+}
+
+//------------------------SIDEBAR-----------------------//
+
+.sidebar {
+  position: fixed;
+  margin: 0;
+  padding: .5rem;
+  width: 13rem;
+  height: 100%;
+  background-color: m.$white;
+  box-shadow: m.$sd-black;
+
+  & .button {
+    font-size: 1.05rem;
+    padding: .5rem;
+    display: block;
+    cursor: pointer;
+    margin: .3rem 0;
+    border-radius: m.$border;
+    transition: background-color .3s;
+
+    &-main{
+      @extend .button;
+      background-color: m.$red;
+    }
+
+    &:hover {
+      background-color: m.$orange;
+    }
+  }
+
+}
+
+.app{
+  width: calc(100% - 13rem) !important;
+  margin-left: 13rem !important;
+  // background-color: m.$light-orange;
+}
+
+.table{
+  height: 19rem;
+  padding: 1rem 0rem;
+  padding-left: 1.5rem;
+  background-color: m.$white;
+  box-shadow: m.$sd-light-grey;
+  border-radius: m.$border;
+  justify-content: center;
+  overflow-y: scroll;
+  // scroll-
+
+  & .row{
+    padding: .2rem;
+    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    cursor: pointer;
+    border-radius: m.$border;
+    transition: background-color .2s;
+
+    &.white{
+      background-color: white;
+    }
+
+    &.clicked{
+      background-color: m.$light-orange;
+    }
+
+    &:hover{
+      background-color: m.$light-orange;
+    }
+
+  }
+
+  & .header{
+    width: 100% !important;
+    margin-bottom: .5rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    transition: background-color .2s;
+    font-weight: bold;
+  }
+
+}
+
+//------------------------FOOTER------------------------//
+
+.footer {
+  height: m.$fotter-height;
+  position: absolute !important;
+  bottom: calc( 0rem - m.$fotter-height);
+  background-color: black;
+  box-shadow: m.$sd-black;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+//------------------------------------------------------//
+//------------------------------------------------------//
