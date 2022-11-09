@@ -44,7 +44,7 @@
   position: fixed;
   margin: 0;
   padding: .5rem;
-  width: 13rem;
+  width: m.$sidebar-w;
   height: 100%;
   background-color: m.$white;
   box-shadow: m.$sd-black;
@@ -71,13 +71,13 @@
 }
 
 .app{
-  width: calc(100% - 13rem) !important;
+  width: calc(100% - m.$sidebar-w) !important;
   margin-left: 13rem !important;
   // background-color: m.$light-orange;
 }
 
 .table{
-  height: 19rem;
+  height: calc(100vh - 16rem);
   padding: 1rem 0rem;
   padding-left: 1.5rem;
   background-color: m.$white;
@@ -91,7 +91,6 @@
     padding: .2rem;
     width: 100% !important;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
     cursor: pointer;
     border-radius: m.$border;
     transition: background-color .2s;
@@ -110,15 +109,69 @@
 
   }
 
+  &.client{
+    .row{grid-template-columns: 4rem repeat(3,1fr);}
+    .header{grid-template-columns: 4rem repeat(3,1fr);}
+  }
+
+  &.trainer{
+    .row{grid-template-columns: repeat(3,1fr);}
+    .header{grid-template-columns: repeat(3,1fr);}
+  }
+
+  &.area{
+    .row{grid-template-columns: repeat(2,1fr);}
+    .header{grid-template-columns: repeat(2,1fr);}
+  }
+
   & .header{
     width: 100% !important;
     margin-bottom: .5rem;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    transition: background-color .2s;
+    
     font-weight: bold;
   }
 
+}
+
+.Info-container{
+  padding: 1rem;
+  height: calc(100vh - 11rem);
+
+  & .image{
+    padding: 0 !important;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    // max-height: 87%;
+  }
+
+  & .info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+  }
+
+  & .section{
+    height: 2rem !important;
+  }
+
+  
+}
+
+.Edit-container{
+  padding: 1rem;
+  height: calc(100vh - 11rem);
+  overflow-y: scroll;
+}
+
+.container-button{
+  margin-top: -3rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end !important;
 }
 
 //------------------------FOOTER------------------------//
@@ -126,7 +179,7 @@
 .footer {
   height: m.$fotter-height;
   position: absolute !important;
-  bottom: calc( 0rem - m.$fotter-height);
+  bottom: calc(0rem - m.$fotter-height);
   background-color: black;
   box-shadow: m.$sd-black;
   flex-direction: column;

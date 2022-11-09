@@ -3,8 +3,13 @@ html * {
 }
 
 html {
-  min-height: calc(100% - 3rem);
+  min-height: calc(100vh - 3rem) !important;
   position: relative;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
 }
 
 body {
@@ -23,7 +28,24 @@ img {
   box-shadow: 0 0 0.5rem rgb(68, 68, 68);
 }
 
+.col-img {
+  max-height: 100%;
+}
+
+.form-div {
+  display: flex;
+  align-items: center !important;
+}
+.form-div * {
+  margin: auto 0;
+}
+.form-div .form-control {
+  font-size: 1.2rem;
+}
+
 .align-v {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center !important;
 }
@@ -180,7 +202,7 @@ html * {
 }
 
 .table {
-  height: 19rem;
+  height: calc(100vh - 16rem);
   padding: 1rem 0rem;
   padding-left: 1.5rem;
   background-color: rgb(248, 240, 240);
@@ -193,7 +215,6 @@ html * {
   padding: 0.2rem;
   width: 100% !important;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   cursor: pointer;
   border-radius: 0.5rem;
   transition: background-color 0.2s;
@@ -207,13 +228,63 @@ html * {
 .table .row:hover {
   background-color: rgb(255, 187, 0);
 }
+.table.client .row {
+  grid-template-columns: 4rem repeat(3, 1fr);
+}
+.table.client .header {
+  grid-template-columns: 4rem repeat(3, 1fr);
+}
+.table.trainer .row {
+  grid-template-columns: repeat(3, 1fr);
+}
+.table.trainer .header {
+  grid-template-columns: repeat(3, 1fr);
+}
+.table.area .row {
+  grid-template-columns: repeat(2, 1fr);
+}
+.table.area .header {
+  grid-template-columns: repeat(2, 1fr);
+}
 .table .header {
   width: 100% !important;
   margin-bottom: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  transition: background-color 0.2s;
   font-weight: bold;
+}
+
+.Info-container {
+  padding: 1rem;
+  height: calc(100vh - 11rem);
+}
+.Info-container .image {
+  padding: 0 !important;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.Info-container .info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+.Info-container .section {
+  height: 2rem !important;
+}
+
+.Edit-container {
+  padding: 1rem;
+  height: calc(100vh - 11rem);
+  overflow-y: scroll;
+}
+
+.container-button {
+  margin-top: -3rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end !important;
 }
 
 .footer {
